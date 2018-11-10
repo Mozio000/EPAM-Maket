@@ -127,10 +127,33 @@ html {
 /*------------------------------*/
 
 .table {
+	border: 1px solid #d9d9d9;
 	margin: 0 auto;
 	width: 77%;
 }
+.table-item {
+	width: 25%;
+	height: 80px;
+	line-height: 80px;
+	margin: -1px;
+	text-align: center;
+}
 
+.table-item-border-right {
+	width: 0;
+	margin: 7px 0;
+	height: 67px;
+	border-right: 1px solid #d9d9d9;
+}
+
+.top-items .table-item {
+	margin: 0 5px;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+/**/
+
+/*------------------------------------*/
 .top-items {
 	display: flex;
 	justify-content: space-between;
@@ -195,19 +218,6 @@ html {
 
 #button2:active {
 	background-color: #28955d;
-}
-
-
-
-
-/*-------------------------------------------*/
-.table-item {
-	width: 25%;
-	height: 80px;
-	line-height: 80px;
-	margin: -1px;
-	border: 2px dashed #d9d9d9;
-	text-align: center;
 }
 
 /*-------------------------------------------------------------*/
@@ -423,22 +433,93 @@ html {
     width: 24%;
 }
 
+.slider {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+/*-------slide picture---------------*/
+.slider1 {
+	background: url("img/slide1.jpg") no-repeat;
+	background-size: cover;
+}
 
+.slider2 {
+	background: url("img/slide2.jpg")no-repeat;
+	background-size: cover;
+}
 
+.slider3 {
+	background: url("img/slide3.jpg")no-repeat;
+	background-size: cover;
+}
+/*------------------------------------*/
 
+.slider-items {
+	width: 300%;
+	height: 300px;
+	display: block;
+	position: absolute;
+	list-style: none;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	transition: left 1s ease-out;
+}
 
+.slider input {
+	text-align: center;
+	position: relative;
+	z-index: 2;
+	top: 70%;
+	left: 50%;
+}
 
+.slider-item {
+	width: 33.33333333333333%;
+	height: 300px;
+	display: block;
+	float: left;
+	position: relative;
+	top: 0;
+	left: 0;
+	list-style: none;
+	color: #fff;
+}
+/*--------can use instead of animation-----*/
+#slide1:checked ~ .slider-items {
+	left: 0;
+}
 
+#slide2:checked ~ .slider-items {
+	left: -100%;
+}
 
-
-
-
-
-
-
-
-
-
+#slide3:checked ~ .slider-items {
+	left: -200%;
+}
+/*-------------------------------------------*/
+@keyframes SlideNext {
+	from, 10% {
+		left: 0;
+	}
+	50% {
+		left: -100%;
+	}
+	90%, to {
+		left: -200%;
+	}
+}
+.slider-items {
+	animation-name: SlideNext;
+	animation-duration: 10s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+	animation-delay: 2s;
+	animation-direction: alternate;
+}
 
 .footer  {
 	background-color: #2a2a2a;
